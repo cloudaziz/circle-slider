@@ -6,16 +6,16 @@ let sliderItem = slider.querySelectorAll('li');
 let totalSliderItem = sliderItem.length;
 
 let sliderItemWidth = sliderItem[0].clientHeight;
+let itemGap = sliderItemWidth / 3;
+console.log(itemGap);
 
 let root = document.querySelector(':root');
 let showItem = getComputedStyle(root).getPropertyValue('--show-items');
-let itemGap = getComputedStyle(root).getPropertyValue('--item-gap');
 
 let showItemWidth = sliderItemWidth * showItem;
 
 let totalItemWidth = totalSliderItem * sliderItemWidth;
 
-let gap = 10;
 let count = 0;
 
 document.querySelector('.next').addEventListener('click', () => {
@@ -23,7 +23,8 @@ document.querySelector('.next').addEventListener('click', () => {
 
   count = count + 1;
 
-  let move = sliderWrapperWidth - sliderItemWidth - gap - sliderWrapperWidth;
+  let move =
+    sliderWrapperWidth - sliderItemWidth - itemGap - sliderWrapperWidth;
 
   slider.style.setProperty('--move', `${move * count}px`);
 });
@@ -33,7 +34,8 @@ document.querySelector('.prev').addEventListener('click', () => {
 
   count = count - 1;
 
-  let move = sliderWrapperWidth - sliderItemWidth - gap - sliderWrapperWidth;
+  let move =
+    sliderWrapperWidth - sliderItemWidth - itemGap - sliderWrapperWidth;
 
   slider.style.setProperty('--move', `${move * count}px`);
 });
