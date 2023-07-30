@@ -7,10 +7,8 @@ let totalSliderItem = sliderItem.length;
 
 let sliderItemWidth = sliderItem[0].clientHeight;
 let itemGap = sliderItemWidth / 3;
-console.log(itemGap);
 
-let root = document.querySelector(':root');
-let showItem = getComputedStyle(root).getPropertyValue('--show-items');
+let showItem = getComputedStyle(sliderWrapper).getPropertyValue('--show-items');
 
 let showItemWidth = sliderItemWidth * showItem;
 
@@ -22,7 +20,6 @@ document.querySelector('.next').addEventListener('click', () => {
   if (count == totalSliderItem - showItem) return;
 
   count = count + 1;
-
   let move =
     sliderWrapperWidth - sliderItemWidth - itemGap - sliderWrapperWidth;
 
@@ -33,7 +30,6 @@ document.querySelector('.prev').addEventListener('click', () => {
   if (count == 0) return;
 
   count = count - 1;
-
   let move =
     sliderWrapperWidth - sliderItemWidth - itemGap - sliderWrapperWidth;
 
